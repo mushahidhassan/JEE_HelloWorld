@@ -4,19 +4,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
 <f:view>
     <h:body>
         <h1>Welcome! #{userBean.lname}, #{userBean.name}  </h1><br/>
         <h1>#{userBean.welcomeString()}</h1>
-       <!--if ( (#{userBean.lname == "mushahid"}) "&&" (#{userBean.lname == "hassan"}) )
-        <s:if test="%{#variable=='String 1'}">
-            This is String 1
-        </s:if>
-        <s:elseif test="%{#variable=='String 2'}">
-            This is String 2
-        </s:elseif>-->
+       <!--if ( (#{userBean.lname == "mushahid"}) "&&" (#{userBean.lname == "hassan"}) )-->
+      <p>
+          <c:set var="salary" scope="session" value="${2000*2}"/>
 
+          <c:if test="${salary > 2000}">
+              <p>
+                  My salary is: <h:inputText value="${salary}"/>
+              </p>
+          </c:if>
+
+      </p>
     </h:body>
 </f:view>
 </html>
